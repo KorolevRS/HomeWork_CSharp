@@ -3,17 +3,15 @@
 //44 5 78 -> 78
 //22 3 9 -> 22
 
-int a;
-int b;
-int c;
+int a, b, c;
 int max;
 
 Console.WriteLine($"Введите число: ");
-int.TryParse (Console.ReadLine()!, out a);
+int.TryParse(Console.ReadLine()!, out a);
 Console.WriteLine($"Введите число: ");
-int.TryParse (Console.ReadLine()!, out b);
+int.TryParse(Console.ReadLine()!, out b);
 Console.WriteLine($"Введите число: ");
-int.TryParse (Console.ReadLine()!, out c);
+int.TryParse(Console.ReadLine()!, out c);
 max = a;
 if (b > max)
 {
@@ -21,7 +19,7 @@ if (b > max)
     if (c > max)
     {
         max = c;
-    }  
+    }
 }
 else
 {
@@ -29,5 +27,5 @@ else
     {
         max = c;
     }
-} 
+}
 Console.Write($"Максимальное число {max}\n");
