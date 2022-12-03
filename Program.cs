@@ -13,9 +13,8 @@ if (n <= 0)
 }
 else
 {
-    /*for(int index = 1; index <= n; index++)
+    /*for(int index = 1; index <= n; index +=2)
     {
-        if (index %2==0)
         Console.Write($"{index} \n");
     }*/
    while (index < n) 
