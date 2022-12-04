@@ -3,12 +3,11 @@
 645 -> 5
 78 -> третьей цифры нет
 32679 -> 6*/
-int a;
-Console.Write($"Введите число: ");
-int.TryParse(Console.ReadLine()!, out a);
-Console.Write($"{a} -> ");
 
-if ((a/100)!=0) 
-    Console.WriteLine((a/100)%10);
-else 
+string text;
+Console.Write($"Введите текст: ");
+text = Console.ReadLine()!;
+if (text.Length > 2)
+    Console.WriteLine(text[2]);
+else
     Console.WriteLine($"третьей цифры нет");
