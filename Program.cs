@@ -1,4 +1,4 @@
-/*Задача Напишите программу,
+﻿/*Задача12. Напишите программу,
  которая будет принимать на вход два числа
  и выводить, является ли второе число кратным
  первому. Если второе число не кратно
@@ -9,11 +9,11 @@
 16, 4 -> кратно*/
 
 int a, b;
-Console.WriteLine($"Выедите число: ");
+Console.WriteLine($"Введите число: ");
 int.TryParse(Console.ReadLine()!, out a);
 Console.WriteLine($"Введите число: ");
 int.TryParse(Console.ReadLine()!, out b);
-if (a%b==0)
+if (a % b == 0)
     Console.WriteLine($"Кратно");
 else
-    Console.WriteLine($"Не кратно, остаток {a%b}");
+    Console.WriteLine($"Не кратно, остаток {a % b}");
