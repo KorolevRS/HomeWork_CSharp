@@ -1,14 +1,20 @@
-﻿/*Задача 15: Напишите программу, которая принимает на вход цифру, 
-обозначающую день недели, и проверяет, является ли этот день выходным.
-6 -> да
-7 -> да
-1 -> нет*/
-int a;
-Console.WriteLine($"Введите день недели в чиловом формате(где 1 - понедельник, 2 - вторник, 7 - воскресенье)");
-int.TryParse(Console.ReadLine()!, out a);
-if (a == 6 || a == 7)
-    Console.WriteLine($"Сегодня выходной");
-else if (a > 0 && a < 6)
-    Console.WriteLine($"Сегодня нужно на работу");
-else
-    Console.WriteLine($"Вы уверены, что в неделе больше 7 дней?");
+﻿/*Напишите программу, которая принимает на вход координаты двух точек и
+ находит расстояние между ними в 3D пространстве.
+A (3,6,8); B (2,1,-7), -> 15.84
+A (7,-5, 0); B (1,-1,9) -> 11.53*/
+
+int x1, y1, z1, x2, y2, z2;
+Console.Write($"Точка А. Введите координату x: ");
+int.TryParse(Console.ReadLine()!, out x1);
+Console.Write($"Точка А. Введите координату y: ");
+int.TryParse(Console.ReadLine()!, out y1);
+Console.Write($"Точка А. Введите координату z: ");
+int.TryParse(Console.ReadLine()!, out z1);
+Console.Write($"Точка B. Введите координату x: ");
+int.TryParse(Console.ReadLine()!, out x2);
+Console.Write($"Точка B. Введите координату y: ");
+int.TryParse(Console.ReadLine()!, out y2);
+Console.Write($"Точка B. Введите координату z: ");
+int.TryParse(Console.ReadLine()!, out z2);
+double rast = Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1) + (z2 - z1) * (z2 - z1));
+Console.WriteLine($"Расстояние между точками А и В в 3D пространстве равно: \n {Math.Round(rast, 2)}");
