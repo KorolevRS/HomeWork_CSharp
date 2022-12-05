@@ -1,28 +1,17 @@
-﻿//Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, 
-//а какое меньшее.
-//a = 5; b = 7 -> max = 7
-//a = 2 b = 10 -> max = 10
-//a = -9 b = -3 -> max = -3
+﻿/*Задача 14:
+Напишите программу, которая принимает на вход
+ число и проверяет, кратно ли оно 
+одновременно 7 и 23.
 
-//int a;
-//int b;
-int a, b;
+14 -> нет
+46 -> нет
+161 -> да*/
+
+int a;
 Console.WriteLine($"Введите число: ");
 int.TryParse(Console.ReadLine()!, out a);
-Console.WriteLine($"Введите число: ");
-int.TryParse(Console.ReadLine()!, out b);
-if (a > b)
-{
-    Console.Write($"Большее число: {a}\nМеньшее число: {b}\n");
-}
+
+if (a % 7 == 0 && a % 23 == 0)
+    Console.WriteLine($"Кратно");
 else
-{
-    if (a < b)
-    {
-        Console.Write($"Большее число: {b}\nМеньшее число: {a}\n");
-    }
-    else
-    {
-        Console.Write($"{a} равно {b}\n");
-    }
-}
+    Console.WriteLine($"Не кратно");
