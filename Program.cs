@@ -8,8 +8,13 @@ int a;
 Console.WriteLine($"Введите пятизначное число: ");
 int.TryParse(Console.ReadLine()!, out a);
 
-if (a / 10000 == a % 10 && (a / 1000) % 10 == (a % 100) / 10)
+// if (a / 10000 == a % 10 && (a / 1000) % 10 == (a % 100) / 10)
+//     Console.Write($"Число является палиндромом \n");
+// else
+//     Console.Write($"Число не является палиндромом \n");
+
+string str = a.ToString();
+if (str[0] == str[4] && str[1] == str[3])
     Console.Write($"Число является палиндромом \n");
 else
     Console.Write($"Число не является палиндромом \n");
-
