@@ -1,20 +1,13 @@
-﻿/*Задача 19
-Напишите программу, которая принимает на вход пятизначное число и проверяет,
-является ли оно палиндромом.
-14212 -> нет
-12821 -> да
-23432 -> да*/
-int a;
-Console.WriteLine($"Введите пятизначное число: ");
+﻿/*Задача 25: Напишите цикл, который принимает на вход два числа (A и B)
+ и возводит число A в натуральную степень B.
+3, 5 -> 243 (3⁵)
+2, 4 -> 16*/
+int a, b;
+Console.WriteLine($"Введите число А: ");
 int.TryParse(Console.ReadLine()!, out a);
-
-// if (a / 10000 == a % 10 && (a / 1000) % 10 == (a % 100) / 10)
-//     Console.Write($"Число является палиндромом \n");
-// else
-//     Console.Write($"Число не является палиндромом \n");
-
-string str = a.ToString();
-if (str[0] == str[4] && str[1] == str[3])
-    Console.Write($"Число является палиндромом \n");
-else
-    Console.Write($"Число не является палиндромом \n");
+Console.WriteLine($"Введите число B: ");
+int.TryParse(Console.ReadLine()!, out b);
+int result = a;
+for (int i = 2; i <= b; i++)
+    result = result * a;
+Console.WriteLine($"{a} в степени {b} -> {result}");
