@@ -1,18 +1,17 @@
-﻿/*Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
-452 -> 11
-82 -> 10
-9012 -> 12*/
-int a;
-int sum = 0;
-Console.WriteLine($"Введите число: ");
-string stroka = Console.ReadLine()!;
-int.TryParse(stroka, out a);
-stroka = a.ToString();
-int[] array = new int[stroka.Length];
+﻿/*Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+6, 1, 33 -> [6, 1, 33]*/
 
+int[] array = new int[8];
 for (int i = 0; i < array.Length; i++)
 {
-    array[i] = int.Parse(stroka[i].ToString());
-    sum += array[i];
+    Console.Write($"Введите {i} элемент массива ");
+    int.TryParse(Console.ReadLine()!, out array[i]);
 }
-Console.WriteLine($"{a} -> {sum}");
+// Console.Write($"[");
+for (int i = 0; i < array.Length; i++)
+    Console.Write($"{array[i]} ");
+Console.WriteLine();
+// for (int i = 0; i < array.Length - 1; i++) \\участок кода чтобы вывести в формате [1, 2, 5, 7, 19]
+//     Console.Write($"{array[i]}, ");
+// Console.Write($"{array[array.Length - 1]}]\n");
