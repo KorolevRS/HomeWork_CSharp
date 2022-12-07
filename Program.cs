@@ -1,13 +1,18 @@
-﻿/*Задача 25: Напишите цикл, который принимает на вход два числа (A и B)
- и возводит число A в натуральную степень B.
-3, 5 -> 243 (3⁵)
-2, 4 -> 16*/
-int a, b;
-Console.WriteLine($"Введите число А: ");
-int.TryParse(Console.ReadLine()!, out a);
-Console.WriteLine($"Введите число B: ");
-int.TryParse(Console.ReadLine()!, out b);
-int result = a;
-for (int i = 2; i <= b; i++)
-    result = result * a;
-Console.WriteLine($"{a} в степени {b} -> {result}");
+﻿/*Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+452 -> 11
+82 -> 10
+9012 -> 12*/
+int a;
+int sum = 0;
+Console.WriteLine($"Введите число: ");
+string stroka = Console.ReadLine()!;
+int.TryParse(stroka, out a);
+stroka = a.ToString();
+int[] array = new int[stroka.Length];
+
+for (int i = 0; i < array.Length; i++)
+{
+    array[i] = int.Parse(stroka[i].ToString());
+    sum += array[i];
+}
+Console.WriteLine($"{a} -> {sum}");
