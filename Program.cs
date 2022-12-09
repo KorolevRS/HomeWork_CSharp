@@ -1,17 +1,20 @@
-﻿/*Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
-1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
-6, 1, 33 -> [6, 1, 33]*/
+﻿/*Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. 
+Напишите программу, которая покажет количество чётных чисел в массиве.
+[345, 897, 568, 234] -> 2*/
 
-int[] array = new int[8];
+int[] array = new int[3];
+int k = 0;
 for (int i = 0; i < array.Length; i++)
 {
-    Console.Write($"Введите {i} элемент массива ");
-    int.TryParse(Console.ReadLine()!, out array[i]);
+    array[i] = new Random().Next(0, 1000);
+    if (array[i] % 2 == 0) k++;
 }
-// Console.Write($"[");
-for (int i = 0; i < array.Length; i++)
-    Console.Write($"{array[i]} ");
-Console.WriteLine();
-// for (int i = 0; i < array.Length - 1; i++) \\участок кода чтобы вывести в формате [1, 2, 5, 7, 19]
-//     Console.Write($"{array[i]}, ");
-// Console.Write($"{array[array.Length - 1]}]\n");
+Print(array);
+
+Console.WriteLine($"\nВ массиве {k} четных числа");
+
+void Print(int[] arr)
+{
+    for (int i = 0; i < arr.Length; i++)
+        Console.Write($"{arr[i]} ");
+}
