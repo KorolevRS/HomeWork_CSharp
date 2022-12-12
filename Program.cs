@@ -1,43 +1,42 @@
-﻿/*Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
-0, 7, 8, -2, -2 -> 2
-1, -7, 567, 89, 223-> 3*/
-int m, x;
-int kol = 0;
-// Console.WriteLine($"Сколько чисел выхотите вести? ");
-// int.TryParse(Console.ReadLine()!, out m);
-// int[] massive = new int[m];
+﻿/*Задача 52. Задайте двумерный массив из целых чисел. 
+Найдите среднее арифметическое элементов в каждом столбце.
+Например, задан массив:
+1 4 7 2
+5 9 2 3
+8 4 2 4
+Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.*/
+int[,] array = new int[3, 4];
+for (int i = 0; i < array.GetLength(0); i++)
+    for (int j = 0; j < array.GetLength(1); j++)
+        array[i, j] = new Random().Next(0, 10);
 
-// for (int i = 0; i < m; i++)
-// {
-//     Console.WriteLine($"Введите {i + 1}-е число:");
-//     int.TryParse(Console.ReadLine()!, out x);
-//     massive[i] = x;
-//     if (x > 0) kol++;
-// }
-// Print(massive);
-// Console.WriteLine($"количество чисел больше -> {kol} ");
+double result;
+Print(array);
+SredArifmet(array);
+Console.WriteLine();
 
-// void Print(int[] arr)
-// {
-//     for (int i = 0; i < arr.Length; i++)
-//         Console.Write($"{arr[i]} ");
-// }
-// // Решение с помощью отдельного/раздельного ввода*/
-
-Console.WriteLine($"Введите числа через ','");
-string[] massiveS = Console.ReadLine()!.Split(',');
-
-for (int i = 0; i < massiveS.Length; i++)
+void SredArifmet(int[,] arr)
 {
-    int.TryParse(massiveS[i], out x);
-    if (x > 0) kol++;
-} //Решение с помощью считывания через Split
+    Console.Write($"Среднее арифметическое каждого столбца ");
+    for (int i = 0; i < array.GetLength(1); i++)
+    {
+        double sum = 0;
+        for (int j = 0; j < array.GetLength(0); j++)
+        {
+            sum += array[j, i];
+        }
+        Console.Write($"{Math.Round(result = sum / array.GetLength(0), 2)}; ");
+    }
+}
 
-Print(massiveS);
-Console.WriteLine($"количество чисел больше 0 -> {kol} ");
-
-void Print(string[] arr)
+void Print(int[,] arr)
 {
-    for (int i = 0; i < arr.Length; i++)
-        Console.Write($"{arr[i]} ");
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            Console.Write($"{arr[i, j]} ");
+        }
+        Console.WriteLine();
+    }
 }
