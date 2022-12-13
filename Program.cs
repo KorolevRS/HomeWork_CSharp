@@ -12,7 +12,8 @@ double[,] array = new double[m, n];
 
 for (int i = 0; i < array.GetLength(0); i++)
     for (int j = 0; j < array.GetLength(1); j++)
-        array[i, j] = (double)new Random().Next(-100, 100) / 10;
+        array[i, j] = (double)new Random().Next(100) / 10.0;
+//vможно использовать new Random().NextDouble() - вещественные числа 0,0 до 1,0
 
 PrintMassive(array);
 
