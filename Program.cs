@@ -1,42 +1,41 @@
-﻿/*Задача 52. Задайте двумерный массив из целых чисел. 
-Найдите среднее арифметическое элементов в каждом столбце.
+﻿/*Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы 
+каждой строки двумерного массива.
 Например, задан массив:
 1 4 7 2
 5 9 2 3
 8 4 2 4
-Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.*/
-int[,] array = new int[3, 4];
-for (int i = 0; i < array.GetLength(0); i++)
-    for (int j = 0; j < array.GetLength(1); j++)
-        array[i, j] = new Random().Next(0, 10);
+В итоге получается вот такой массив:
+7 4 2 1
+9 5 3 2
+8 4 4 2*/
 
-double result;
-Print(array);
-SredArifmet(array);
+int[,] array = { { 1, 4, 7, 2 }, { 5, 9, 2, 3 }, { 8, 4, 2, 4 } };
+PrintMassive(array);
 Console.WriteLine();
 
-void SredArifmet(int[,] arr)
+for (int i = 0; i < array.GetLength(0); i++)
 {
-    Console.Write($"Среднее арифметическое каждого столбца ");
-    for (int i = 0; i < array.GetLength(1); i++)
+    for (int j = 0; j < array.GetLength(1) - 1; j++)
     {
-        double sum = 0;
-        for (int j = 0; j < array.GetLength(0); j++)
+        int maxPosition = j;
+        for (int k = j + 1; k < array.GetLength(1); k++)
         {
-            sum += array[j, i];
+            if (array[i, k] > array[i, maxPosition])
+                maxPosition = k;
         }
-        Console.Write($"{Math.Round(result = sum / array.GetLength(0), 2)}; ");
+        int temp = array[i, j];
+        array[i, j] = array[i, maxPosition];
+        array[i, maxPosition] = temp;
     }
 }
+PrintMassive(array);
 
-void Print(int[,] arr)
+void PrintMassive(int[,] arr) //вывод на экран массива
 {
     for (int i = 0; i < arr.GetLength(0); i++)
     {
         for (int j = 0; j < arr.GetLength(1); j++)
-        {
             Console.Write($"{arr[i, j]} ");
-        }
         Console.WriteLine();
     }
 }
