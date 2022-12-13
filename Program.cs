@@ -9,29 +9,26 @@
 выдаёт номер строки с наименьшей суммой элементов: 1 строка*/
 
 int[,] array = new int[5, 4];
+
 for (int i = 0; i < array.GetLength(0); i++)
     for (int j = 0; j < array.GetLength(1); j++)
         array[i, j] = new Random().Next(10);
+
 Print(array);
 
-int[] summaStr = new int[array.GetLength(0)];
+int strokaMinSumm = 0;
+int sumMin = 0;
+for (int j = 0; j < array.GetLength(1); j++)
+    sumMin += array[0, j];
 
 for (int i = 0; i < array.GetLength(0); i++)
 {
     int sumStr = 0;
     for (int j = 0; j < array.GetLength(1); j++)
-        sumStr += array[i, j];
-    summaStr[i] = sumStr;
-}
-int strokaMinSumm = 0;
-int sumMin = summaStr[0];
-for (int i = 0; i < summaStr.Length; i++)
-{
-    Console.Write($"{summaStr[i]} ");
-    if (summaStr[i] < sumMin)
     {
-        strokaMinSumm = i;
+        sumStr += array[i, j];
     }
+    if (sumStr < sumMin) strokaMinSumm = i;
 }
 Console.WriteLine();
 Console.WriteLine($"Строка с минимальной суммой: {strokaMinSumm + 1}");
