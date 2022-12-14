@@ -1,35 +1,36 @@
-﻿/*Задача 52. Задайте двумерный массив из целых чисел. 
-Найдите среднее арифметическое элементов в каждом столбце.
-Например, задан массив:
-1 4 7 2
-5 9 2 3
-8 4 2 4
-Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.*/
-int[,] array = new int[3, 4];
-for (int i = 0; i < array.GetLength(0); i++)
-    for (int j = 0; j < array.GetLength(1); j++)
-        array[i, j] = new Random().Next(0, 10);
-
-double result;
-Print(array);
-SredArifmet(array);
+﻿/*Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+Например, даны 2 матрицы:
+2 4 | 3 4
+3 2 | 3 3
+Результирующая матрица будет:
+18 20
+15 18*/
+int[,] array1 = { { 2, 4 }, { 3, 2 } };
+int[,] array2 = { { 3, 4 }, { 3, 3 } };
+int[,] arrayResult = new int[2, 2];
+Print(array1);
 Console.WriteLine();
 
-void SredArifmet(int[,] arr)
-{
-    Console.Write($"Среднее арифметическое каждого столбца ");
-    for (int i = 0; i < array.GetLength(1); i++)
-    {
-        double sum = 0;
-        for (int j = 0; j < array.GetLength(0); j++)
-        {
-            sum += array[j, i];
-        }
-        Console.Write($"{Math.Round(result = sum / array.GetLength(0), 2)}; ");
-    }
-}
+Print(array2);
+Console.WriteLine();
 
-void Print(int[,] arr)
+for (int i = 0; i < arrayResult.GetLength(0); i++)
+    for (int j = 0; j < arrayResult.GetLength(1); j++)
+        arrayResult[i, j] = ProizvedenieElemetov(array1, array2, i, j);
+Print(arrayResult);
+
+// void FillArray(int[,] arr)//заполнение массива
+// {
+//     for (int i = 0; i < arr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < arr.GetLength(1); j++)
+//         {
+//             arr[i, j] = new Random().Next(10);
+//         }
+
+//     }
+// }
+void Print(int[,] arr)//вывод массива
 {
     for (int i = 0; i < arr.GetLength(0); i++)
     {
@@ -39,4 +40,12 @@ void Print(int[,] arr)
         }
         Console.WriteLine();
     }
+}
+
+int ProizvedenieElemetov(int[,] arr1, int[,] arr2, int i, int j)
+{
+    int summa = 0;
+    for (int k = 0; k < arr1.GetLength(0); k++)
+        summa += arr1[i, k] * arr2[k, j];
+    return summa;
 }
