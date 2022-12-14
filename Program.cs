@@ -9,29 +9,22 @@
 выдаёт номер строки с наименьшей суммой элементов: 1 строка*/
 
 int[,] array = new int[5, 4];
-
-for (int i = 0; i < array.GetLength(0); i++)
-    for (int j = 0; j < array.GetLength(1); j++)
-        array[i, j] = new Random().Next(10);
-
+FillArray(array);
 Print(array);
 
-int strokaMinSumm = 0;
-int sumMin = 0;
-for (int j = 0; j < array.GetLength(1); j++)
-    sumMin += array[0, j];
-
+int strokaMinSumma = SummaStroki(array, 0);
+int nomerStrokaMinSumma = 0;
 for (int i = 0; i < array.GetLength(0); i++)
 {
-    int sumStr = 0;
-    for (int j = 0; j < array.GetLength(1); j++)
+    int temp = SummaStroki(array, i);
+    if (temp < strokaMinSumma)
     {
-        sumStr += array[i, j];
+        strokaMinSumma = temp;
+        nomerStrokaMinSumma = i;
     }
-    if (sumStr < sumMin) strokaMinSumm = i;
 }
 Console.WriteLine();
-Console.WriteLine($"Строка с минимальной суммой: {strokaMinSumm + 1}");
+Console.WriteLine($"Строка с минимальной суммой: {nomerStrokaMinSumma + 1}");
 
 void Print(int[,] arr) // выводит массив
 {
@@ -41,4 +34,17 @@ void Print(int[,] arr) // выводит массив
             Console.Write($"{arr[i, j]} ");
         Console.WriteLine();
     }
+}
+void FillArray(int[,] arr) //Заполнение массива
+{
+    for (int i = 0; i < arr.GetLength(0); i++)
+        for (int j = 0; j < arr.GetLength(1); j++)
+            arr[i, j] = new Random().Next(10);
+}
+int SummaStroki(int[,] arr, int k)// подсчеты суммы элементов в строке
+{
+    int SummaStroki = 0;
+    for (int j = 0; j < arr.GetLength(1); j++)
+        SummaStroki += array[k, j];
+    return SummaStroki;
 }
