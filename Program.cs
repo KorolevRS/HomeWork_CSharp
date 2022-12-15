@@ -5,16 +5,30 @@
 11 16 15 06
 10 09 08 07*/
 
-int[,] array = new int[3, 4];
-for (int i = 0; i < array.GetLength(0); i++)
-    for (int j = 0; j < array.GetLength(1); j++)
-        array[i, j] = new Random().Next(0, 10);
+int[,] array = new int[4, 4];
+int temp = array.GetLength(0) * array.GetLength(1);
+int k = 1;
+int i = 0;
+int j = 0;
+while (k <= temp)
+{
+    array[i, j] = k;
+    k++;
+    if (i <= j + 1 && i + j < array.GetLength(1) - 1)
+        j++;
+    else if (i < j && i + j >= array.GetLength(0) - 1)
+        i++;
+    else if (i >= j && i + j > array.GetLength(1) - 1)
+        j--;
+    else
+        i--;
+}
+
+Print(array);
 
 
 
-
-
-void Print(int[,] arr)
+void Print(int[,] arr)// Вывод массива
 {
     for (int i = 0; i < arr.GetLength(0); i++)
     {
