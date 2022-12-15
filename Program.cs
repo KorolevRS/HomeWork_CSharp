@@ -4,8 +4,7 @@
 3 2 | 3 3
 Результирующая матрица будет:
 18 20
-15 18
-Работает только для квадратных матриц одного размера*/
+15 18*/
 int[,] array1 = new int[2, 2];
 int[,] array2 = new int[2, 2];
 int[,] arrayResult = new int[array1.GetLength(0), array2.GetLength(1)];
@@ -16,7 +15,7 @@ FillArray(array2);
 Print(array2);
 Console.WriteLine();
 
-for (int i = 0; i < arrayResult.GetLength(0); i++)
+for (int i = 0; i < arrayResult.GetLength(0); i++) //основной цикл
     for (int j = 0; j < arrayResult.GetLength(1); j++)
         arrayResult[i, j] = ProizvedenieElemetov(array1, array2, i, j);
 Print(arrayResult);
@@ -44,7 +43,7 @@ void Print(int[,] arr)//вывод массива
     }
 }
 
-int ProizvedenieElemetov(int[,] arr1, int[,] arr2, int i, int j)
+int ProizvedenieElemetov(int[,] arr1, int[,] arr2, int i, int j)// алгебрарическая сумма произведения элементов
 {
     int summa = 0;
     for (int k = 0; k < arr1.GetLength(1); k++)
