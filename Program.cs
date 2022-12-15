@@ -1,42 +1,30 @@
-﻿/*Задача 52. Задайте двумерный массив из целых чисел. 
-Найдите среднее арифметическое элементов в каждом столбце.
-Например, задан массив:
-1 4 7 2
-5 9 2 3
-8 4 2 4
-Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.*/
-int[,] array = new int[3, 4];
+﻿/*Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. 
+Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+Массив размером 2 x 2 x 2
+66(0,0,0) 25(0,1,0)
+34(1,0,0) 41(1,1,0)
+27(0,0,1) 90(0,1,1)
+26(1,0,1) 55(1,1,1)*/
+int[,,] array = new int[2, 2, 2];
+Random rnd = new Random();
 for (int i = 0; i < array.GetLength(0); i++)
     for (int j = 0; j < array.GetLength(1); j++)
-        array[i, j] = new Random().Next(0, 10);
+        for (int k = 0; j < array.GetLength(2); k++)
+            array[i, j, k] = rnd.Next(10, 99);
 
-double result;
+
 Print(array);
-SredArifmet(array);
 Console.WriteLine();
 
-void SredArifmet(int[,] arr)
-{
-    Console.Write($"Среднее арифметическое каждого столбца ");
-    for (int i = 0; i < array.GetLength(1); i++)
-    {
-        double sum = 0;
-        for (int j = 0; j < array.GetLength(0); j++)
-        {
-            sum += array[j, i];
-        }
-        Console.Write($"{Math.Round(result = sum / array.GetLength(0), 2)}; ");
-    }
-}
 
-void Print(int[,] arr)
+
+void Print(int[,,] arr)
 {
     for (int i = 0; i < arr.GetLength(0); i++)
     {
         for (int j = 0; j < arr.GetLength(1); j++)
-        {
-            Console.Write($"{arr[i, j]} ");
-        }
+            for (int k = 0; j < arr.GetLength(2); k++)
+                Console.Write($"{arr[i, j, k]}({i},{j},{k}) ");
         Console.WriteLine();
     }
 }
