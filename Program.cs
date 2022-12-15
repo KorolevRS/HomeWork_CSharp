@@ -14,7 +14,7 @@ Print(array);
 
 int strokaMinSumma = SummaStroki(array, 0);
 int nomerStrokaMinSumma = 0;
-for (int i = 0; i < array.GetLength(0); i++)
+for (int i = 1; i < array.GetLength(0); i++)
 {
     int temp = SummaStroki(array, i);
     if (temp < strokaMinSumma)
@@ -46,5 +46,6 @@ int SummaStroki(int[,] arr, int k)// подсчеты суммы элемент�
     int SummaStroki = 0;
     for (int j = 0; j < arr.GetLength(1); j++)
         SummaStroki += array[k, j];
+    Console.Write($"{SummaStroki} ");//вывод суммы каждой строки
     return SummaStroki;
 }
