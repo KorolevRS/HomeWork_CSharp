@@ -14,13 +14,16 @@ PrintMassive(array);
 Console.WriteLine();
 for (int i = 0; i < array.GetLength(0); i++)
 {
-    for (int j = 0; j < array.GetLength(1) - 1; j++)
+    for (int j = 0; j < array.GetLength(1); j++)
     {
-        if (array[i, j] < array[i, j + 1])
+        for (int k = 0; k < array.GetLength(1) - 1; k++)
         {
-            int temp = array[i, j];
-            array[i, j] = array[i, j + 1];
-            array[i, j + 1] = temp;
+            if (array[i, k] < array[i, k + 1])
+            {
+                int temp = array[i, k];
+                array[i, k] = array[i, k + 1];
+                array[i, k + 1] = temp;
+            }
         }
     }
 }
