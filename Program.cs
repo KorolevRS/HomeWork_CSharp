@@ -47,7 +47,7 @@ void Print(int[,] arr)//вывод массива
 int ProizvedenieElemetov(int[,] arr1, int[,] arr2, int i, int j)
 {
     int summa = 0;
-    for (int k = 0; k < arr1.GetLength(0); k++)
+    for (int k = 0; k < arr1.GetLength(1); k++)
         summa += arr1[i, k] * arr2[k, j];
     return summa;
 }
