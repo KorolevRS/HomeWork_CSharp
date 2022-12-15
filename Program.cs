@@ -9,7 +9,8 @@
 9 5 3 2
 8 4 4 2*/
 
-int[,] array = { { 1, 4, 7, 2 }, { 5, 9, 2, 3 }, { 8, 4, 2, 4 } };
+int[,] array = new int[3, 4];
+FillArray(array);
 PrintMassive(array);
 Console.WriteLine();
 for (int i = 0; i < array.GetLength(0); i++)
@@ -37,4 +38,11 @@ void PrintMassive(int[,] arr) //вывод на экран массива
             Console.Write($"{arr[i, j]} ");
         Console.WriteLine();
     }
+}
+
+void FillArray(int[,] arr) //Заполнение массива
+{
+    for (int i = 0; i < arr.GetLength(0); i++)
+        for (int j = 0; j < arr.GetLength(1); j++)
+            arr[i, j] = new Random().Next(10);
 }
