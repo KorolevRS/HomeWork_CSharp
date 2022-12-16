@@ -1,48 +1,24 @@
-﻿/*Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы 
-каждой строки двумерного массива.
-Например, задан массив:
-1 4 7 2
-5 9 2 3
-8 4 2 4
-В итоге получается вот такой массив:
-7 4 2 1
-9 5 3 2
-8 4 4 2*/
+﻿/*Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии.
+ Даны два неотрицательных числа m и n.
+m = 2, n = 3 -> A(m,n) = 9
+m = 3, n = 2 -> A(m,n) = 29*/
 
-int[,] array = new int[3, 4];
-FillArray(array);
-PrintMassive(array);
-Console.WriteLine();
-for (int i = 0; i < array.GetLength(0); i++)
+int k, j;
+Console.WriteLine($"Введите значение M: ");
+int.TryParse(Console.ReadLine()!, out k);
+Console.WriteLine($"Введите значение N: ");
+int.TryParse(Console.ReadLine()!, out j);
+Console.WriteLine(Acermana(k, j));
+
+int Acermana(int m, int n)
 {
-    for (int j = 0; j < array.GetLength(1); j++)
+    if (m == 0) return n + 1;
+    else if (m > 0 && n == 0)
     {
-        for (int k = 0; k < array.GetLength(1) - 1; k++)
-        {
-            if (array[i, k] < array[i, k + 1])
-            {
-                int temp = array[i, k];
-                array[i, k] = array[i, k + 1];
-                array[i, k + 1] = temp;
-            }
-        }
+        return Acermana(m - 1, 1);
     }
-}
-PrintMassive(array);
-
-void PrintMassive(int[,] arr) //вывод на экран массива
-{
-    for (int i = 0; i < arr.GetLength(0); i++)
+    else
     {
-        for (int j = 0; j < arr.GetLength(1); j++)
-            Console.Write($"{arr[i, j]} ");
-        Console.WriteLine();
+        return Acermana(m - 1, Acermana(m, n - 1));
     }
-}
-
-void FillArray(int[,] arr) //Заполнение массива
-{
-    for (int i = 0; i < arr.GetLength(0); i++)
-        for (int j = 0; j < arr.GetLength(1); j++)
-            arr[i, j] = new Random().Next(10);
 }
